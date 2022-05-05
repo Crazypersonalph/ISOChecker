@@ -59,7 +59,24 @@ def switch_to_sha256():
                 badfile.mainloop()
         elif platform.system() == "Linux":
             check = subprocess.run(["sha256sum", sha256_input_iso_entry.get()], capture_output=True, text=True)
-            print(check.stdout)
+            y = check.stdout.split(' ', 1)[0]
+            if y == sha256_input_hash_entry.get():
+                sha256sum.destroy()
+                goodfile = Tk()
+                goodfile.geometry("500x500")
+                goodfile.title("ISOChecker")
+                checks = ttk.Label(text="Good file!", font=("Helvetica", 12))
+                checks.pack()
+                goodfile.mainloop()
+            else:
+                sha256sum.destroy()
+                badfile = Tk()
+                badfile.geometry("500x500")
+                badfile.title("ISOChecker")
+                checks = ttk.Label(text="Bad file! Do not use!", font=("Helvetica", 12))
+                checks.pack()
+                badfile.mainloop()
+
 
     window.destroy()
     sha256sum = Tk()
