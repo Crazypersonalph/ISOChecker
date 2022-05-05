@@ -18,9 +18,10 @@ def switch_to_sha256():
         if platform.system() == 'Windows':
             check = subprocess.run(["certutil", "-hashfile", sha256_input_iso_entry.get(), "sha256"], capture_output=True, text=True)
             x = check.stdout.split("\n")
-            x.remove("SHA256 hash of C:\\Users\\helpm\\Desktop\\Computer Stuff\\Computer nerd\\ISO's\\alpine-standard-3.15.4-x86_64.iso:")
+            del x[0]
             x.remove("CertUtil: -hashfile command completed successfully.")
             y = str.join(x)
+            print(x)
             if y == sha256_input_hash_entry.get():
                 sha256sum.destroy()
                 goodfile = Tk()
