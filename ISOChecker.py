@@ -19,8 +19,23 @@ def switch_to_sha256():
             x = check.stdout.split("\n")
             x.remove("SHA256 hash of C:\\Users\\helpm\\Desktop\\Computer Stuff\\Computer nerd\\ISO's\\alpine-standard-3.15.4-x86_64.iso:")
             x.remove("CertUtil: -hashfile command completed successfully.")
-            x.remove("")
             y = str.join(x)
+            if y == sha256_input_hash_entry.get():
+                sha256sum.destroy()
+                goodfile = Tk()
+                goodfile.geometry("500x500")
+                goodfile.title("ISOChecker")
+                checks = ttk.Label(text="Good file!", font=("Helvetica", 12))
+                checks.pack()
+                goodfile.mainloop()
+            else:
+                sha256sum.destroy()
+                badfile = Tk()
+                badfile.geometry("500x500")
+                badfile.title("ISOChecker")
+                checks = ttk.Label(text="Bad file! Do not use!", font=("Helvetica", 12))
+                checks.pack()
+                badfile.mainloop()
             
         elif platform.system() == 'Darwin':
             check = subprocess.run(["shasum", "-a", "256", sha256_input_iso_entry.get()])
