@@ -1,3 +1,4 @@
+from os import system
 from tkinter import *
 from tkinter import ttk
 import platform
@@ -38,7 +39,28 @@ def switch_to_sha256():
                 badfile.mainloop()
             
         elif platform.system() == 'Darwin':
-            check = subprocess.run(["shasum", "-a", "256", sha256_input_iso_entry.get()])
+            check = subprocess.run(["shasum", "-a", "256", sha256_input_iso_entry.get()], capture_output=True, text=True)
+            x = check.stdout
+            if x == sha256_input_hash_entry.get():
+                sha256sum.destroy()
+                goodfile = Tk()
+                goodfile.geometry("500x500")
+                goodfile.title("ISOChecker")
+                checks = ttk.Label(text="Good file!", font=("Helvetica", 12))
+                checks.pack()
+                goodfile.mainloop()
+            else:
+                sha256sum.destroy()
+                badfile = Tk()
+                badfile.geometry("500x500")
+                badfile.title("ISOChecker")
+                checks = ttk.Label(text="Bad file! Do not use!", font=("Helvetica", 12))
+                checks.pack()
+                badfile.mainloop()
+        elif platform.system() == "Linux":
+            check = subprocess.run(["sha256sum", sha256_input_iso_entry.get()], capture_output=True, text=True)
+            print(check.stdout)
+
     window.destroy()
     sha256sum = Tk()
     sha256sum.geometry("500x500")
