@@ -100,7 +100,7 @@ def switch_to_gpg_screen():
     def gpg_checksum():
         def check_gpg():
             check = subprocess.run(["gpg", "--verify", gpg_input_sig_entry.get(), gpg_input_iso_entry.get()], capture_output=True, text=True)
-            if "Good signature" in check.stderr:
+            if "Good signature" in check.stdout or check.stderr:
                 gpgsum.destroy()
                 goodfile = Tk()
                 goodfile.geometry("500x500")
