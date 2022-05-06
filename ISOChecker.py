@@ -96,16 +96,28 @@ def switch_to_sha256():
     sha256_checksum.pack()
     sha256sum.mainloop()
 
-def switch_to_gpg():
+def switch_to_gpg_screen():
+    def gpg_checksum():
+        gpg.destroy()
+        gpgsum = Tk()
+        gpgsum.geometry("500x500")
+        gpgsum.title("ISOChecker")
     window.destroy()
-    gpgsum = Tk()
-    gpgsum.geometry("500x500")
-    gpgsum.title("ISOChecker")
-    notice = ttk.Label(text="PLEASE NOTE: Please import your keys before you run this. It is because of the complexity of handling gpg public keys, and since I am only one person, you will have to import your public keys beforehand. You can get instructions for importing your public key from your OS distibutor.", font=("Helvetica", 12))
-    gpgsum.mainloop()
+    gpg = Tk()
+    gpg.geometry("500x500")
+    gpg.title("ISOChecker")
+    notice = ttk.Label(text="PLEASE NOTE: Please import your keys before you run this.", font=("Helvetica", 12))
+    notice1 = ttk.Label(text="This is because of the complexity and the different methods of importing public keys")
+    notice2 = ttk.Label(text="I am only one person, and I am still a student, so we will have to live with this limitation.")
+    understand = ttk.Button(text="I understand", command=gpg_checksum)
+    notice.pack()
+    notice1.pack()
+    notice2.pack()
+    understand.pack()
+    gpg.mainloop()
 
 SHA256SUMSELECTOR = ttk.Button(text="SHA256SUM", command=switch_to_sha256)
-GPGSELECTOR = ttk.Button(text="GPG", command=switch_to_gpg)
+GPGSELECTOR = ttk.Button(text="GPG", command=switch_to_gpg_screen)
 
 header.pack()
 SHA256SUMSELECTOR.pack()
