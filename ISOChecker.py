@@ -101,6 +101,7 @@ def switch_to_gpg():
     gpgsum = Tk()
     gpgsum.geometry("500x500")
     gpgsum.title("ISOChecker")
+    notice = ttk.Label(text="PLEASE NOTE: Please import your keys before you run this. It is because of the complexity of handling gpg public keys, and since I am only one person, you will have to import your public keys beforehand. You can get instructions for importing your public key from your OS distibutor.", font=("Helvetica", 12))
     gpgsum.mainloop()
 
 SHA256SUMSELECTOR = ttk.Button(text="SHA256SUM", command=switch_to_sha256)
