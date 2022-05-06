@@ -96,8 +96,17 @@ def switch_to_sha256():
     sha256_checksum.pack()
     sha256sum.mainloop()
 
+def switch_to_gpg():
+    window.destroy()
+    gpgsum = Tk()
+    gpgsum.geometry("500x500")
+    gpgsum.title("ISOChecker")
+    gpgsum.mainloop()
+
 SHA256SUMSELECTOR = ttk.Button(text="SHA256SUM", command=switch_to_sha256)
+GPGSELECTOR = ttk.Button(text="GPG", command=switch_to_gpg)
 
 header.pack()
 SHA256SUMSELECTOR.pack()
+GPGSELECTOR.pack()
 window.mainloop()
