@@ -102,6 +102,8 @@ def switch_to_gpg_screen():
         gpgsum = Tk()
         gpgsum.geometry("500x500")
         gpgsum.title("ISOChecker")
+        gpg_input_label_iso = ttk.Label(text="Input your ISO file path (full), (please remove quotation marks)", font=("Helvetica", 12))
+        gpg_input_label_iso.pack()
     window.destroy()
     gpg = Tk()
     gpg.geometry("500x500")
