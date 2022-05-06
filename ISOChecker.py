@@ -98,12 +98,38 @@ def switch_to_sha256():
 
 def switch_to_gpg_screen():
     def gpg_checksum():
+        def check_gpg():
+            check = subprocess.run(["gpg", "--verify", gpg_input_sig_entry.get(), gpg_input_iso_entry.get()], capture_output=True, text=True)
+            if "Good signature" in check.stderr:
+                gpgsum.destroy()
+                goodfile = Tk()
+                goodfile.geometry("500x500")
+                goodfile.title("ISOChecker")
+                goodfile_label = ttk.Label(text="Good file!", font=("Helvetica", 12))
+                goodfile_label.pack()
+                goodfile.mainloop()
+            else:
+                gpgsum.destroy()
+                badfile = Tk()
+                badfile.geometry("500x500")
+                badfile.title("ISOChecker")
+                badfile_label = ttk.Label(text="Bad file! Do not use!", font=("Helvetica", 12))
+                badfile_label.pack()
+                badfile.mainloop()
         gpg.destroy()
         gpgsum = Tk()
         gpgsum.geometry("500x500")
         gpgsum.title("ISOChecker")
         gpg_input_label_iso = ttk.Label(text="Input your ISO file path (full), (please remove quotation marks)", font=("Helvetica", 12))
+        gpg_input_iso_entry = ttk.Entry(gpgsum, width=50)
+        gpg_input_label_sig = ttk.Label(text="Input your signature file path (.sig, .asc) (full) (please remove quotation marks)", font=("Helvetica", 12))
+        gpg_input_sig_entry = ttk.Entry(gpgsum, width=50)
+        gpg_check_button = ttk.Button(text="Check", command=check_gpg)
         gpg_input_label_iso.pack()
+        gpg_input_iso_entry.pack()
+        gpg_input_label_sig.pack()
+        gpg_input_sig_entry.pack()
+        gpg_check_button.pack()
     window.destroy()
     gpg = Tk()
     gpg.geometry("500x500")
