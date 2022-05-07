@@ -62,6 +62,8 @@ If it is a Bad Signature, you will get "Bad File! Do Not Use!"
 This is licensed under the MIT license
 
 # Credit
-This was built with the packages OS, Tkinter, Platform, Subprocess, and Regex
+This was built with the packages:
+
+OS, Tkinter, Platform, Subprocess, and Regex
 
 Binaries built with PyInstaller on Windows and WSL.
