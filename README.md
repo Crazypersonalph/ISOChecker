@@ -29,7 +29,7 @@ There will be two entry boxes,
 One for your ISO directory, and one for your Hash.
 
 If your ISO file is not in the same directory as the tool, you must put in the full path.
-You must also remove quotation marks, as it is currently a limitation for it to work.
+**You must also remove quotation marks, as it is currently a limitation for it to work.**
 
 Clicking the "Check" button will give you either one of two windows.
 There will either be one that says "Good file!"
@@ -46,7 +46,7 @@ Then there will be two entry boxes.
 There will be one for your ISO file, and there will be one for your signature file.
 This signature file will be a .sig or .asc file.
 
-Please remember to remove the quotation marks from the path before clicking the check button.
+**Please remember to remove the quotation marks from the path before clicking the check button.**
 
 When you click the "Check Button", it will give you either of two windows.
 
