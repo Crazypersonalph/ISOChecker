@@ -1,4 +1,7 @@
 # ISOChecker
+
+![GitHub](https://img.shields.io/github/license/Crazypersonalph/ISOChecker?style=for-the-badge) ![GitHub issues](https://img.shields.io/github/issues/Crazypersonalph/ISOChecker?style=for-the-badge)
+
 It is a GUI ISO checker, which is made in python with Tkinter, and can process SHA256 and GPG Checksums.
 
 #### Are you a sysadmin who is tired of verifying their ISO's? Are you a server architect who just has to manage all those services? Don't worry!
