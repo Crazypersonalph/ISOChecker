@@ -5,6 +5,7 @@ import platform
 import subprocess
 import re
 
+# This is big pog
 
 window = Tk()
 window.geometry("500x500")
