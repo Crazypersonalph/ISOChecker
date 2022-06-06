@@ -5,8 +5,6 @@ import platform
 import subprocess
 import re
 
-# Verification check
-
 window = Tk()
 window.geometry("500x500")
 window.title("ISOChecker")
