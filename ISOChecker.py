@@ -5,7 +5,7 @@ import platform
 import subprocess
 import re
 
-# This is big pog lol
+# Verification check
 
 window = Tk()
 window.geometry("500x500")
